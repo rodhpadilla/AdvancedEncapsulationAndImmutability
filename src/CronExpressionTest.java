@@ -24,6 +24,13 @@ public class CronExpressionTest {
     }
 
     @Test
+    void testNullExpression(){
+        assertThrows(IllegalArgumentException.class, () -> {
+           new CronExpression(null);
+        });
+    }
+
+    @Test
     void testInvalidExpression1(){
         assertThrows(IllegalArgumentException.class, () -> {
             new CronExpression("A*B*C");
